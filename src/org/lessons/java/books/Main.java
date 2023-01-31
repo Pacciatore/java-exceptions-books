@@ -30,6 +30,10 @@ public class Main {
 
 		displayBooks(books);
 
+		changeBook(s, books);
+
+		displayBooks(books);
+
 		s.close();
 
 	}
@@ -72,6 +76,69 @@ public class Main {
 
 			System.out.println("-------------------------------------------");
 		}
+
+	}
+
+	public static void changeBook(Scanner s, Book[] books) {
+
+		boolean done = false;
+
+		// Cambio del titolo
+		do {
+			try {
+				System.out.println("Cambia titolo del primo libro: ");
+				books[0].setTitle(s.nextLine());
+				done = true;
+			} catch (BookStringsException e) {
+				System.out.println(e.getMessage());
+				done = false;
+			}
+		} while (!done);
+
+		done = false;
+
+		// Cambio del numero delle pagine
+		do {
+			try {
+				System.out.println("Cambia numero di pagine del primo libro: ");
+				books[0].setNumPages(Integer.parseInt(s.nextLine()));
+				done = true;
+			} catch (BookIntegerException e) {
+				System.out.println(e.getMessage());
+				done = false;
+			} catch (NumberFormatException e) {
+				System.out.println("Inserire un numero!");
+				done = false;
+			}
+		} while (!done);
+
+		done = false;
+
+		// Cambio dell'autore
+		do {
+			try {
+				System.out.println("Cambia autore del primo libro: ");
+				books[0].setAuthor(s.nextLine());
+				done = true;
+			} catch (BookStringsException e) {
+				System.out.println(e.getMessage());
+				done = false;
+			}
+		} while (!done);
+
+		done = false;
+
+		// Cambio dell'editore
+		do {
+			try {
+				System.out.println("Cambia editore del primo libro: ");
+				books[0].setEditor(s.nextLine());
+				done = true;
+			} catch (BookStringsException e) {
+				System.out.println(e.getMessage());
+				done = false;
+			}
+		} while (!done);
 
 	}
 
