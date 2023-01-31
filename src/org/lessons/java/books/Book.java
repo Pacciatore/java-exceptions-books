@@ -7,9 +7,13 @@ public class Book {
 	private String author;
 	private String editor;
 
-	public Book(String _title, int _numPages, String _author, String _editor) {
+	public Book(String _title, int _numPages, String _author, String _editor) throws BookStringsException {
 
-		this.title = _title;
+		if (_title.trim().length() == 0)
+			throw new BookStringsException();
+		else
+			this.title = _title;
+
 		this.numPages = _numPages;
 		this.author = _author;
 		this.editor = _editor;
@@ -36,7 +40,7 @@ public class Book {
 	// Setters
 	public void setTitle(String _title) throws BookStringsException {
 		if (_title.trim().length() <= 0)
-			throw new BookStringsException(_title);
+			throw new BookStringsException();
 		else
 			this.title = _title;
 	}
@@ -50,14 +54,14 @@ public class Book {
 
 	public void setAuthor(String _author) throws BookStringsException {
 		if (_author.trim().length() <= 0)
-			throw new BookStringsException(_author);
+			throw new BookStringsException();
 		else
 			this.author = _author;
 	}
 
 	public void setEditor(String _editor) throws BookStringsException {
 		if (_editor.trim().length() <= 0)
-			throw new BookStringsException(_editor);
+			throw new BookStringsException();
 		else
 			this.editor = _editor;
 	}
