@@ -20,8 +20,15 @@ public class Book {
 		else
 			this.numPages = _numPages;
 
-		this.author = _author;
-		this.editor = _editor;
+		if (_author.trim().length() == 0)
+			throw new BookStringsException();
+		else
+			this.author = _author;
+
+		if (_editor.trim().length() == 0)
+			throw new BookStringsException();
+		else
+			this.editor = _editor;
 
 	}
 
