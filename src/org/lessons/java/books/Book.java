@@ -8,10 +8,10 @@ public class Book {
 	private String editor;
 
 	public Book(String _title, int _numPages, String _author, String _editor)
-			throws BookStringsException, BookIntegerException {
+			throws BookTitleException, BookAuthorException, BookEditorException, BookIntegerException {
 
 		if (_title.trim().length() == 0)
-			throw new BookStringsException();
+			throw new BookTitleException();
 		else
 			this.title = _title;
 
@@ -21,12 +21,12 @@ public class Book {
 			this.numPages = _numPages;
 
 		if (_author.trim().length() == 0)
-			throw new BookStringsException();
+			throw new BookAuthorException();
 		else
 			this.author = _author;
 
 		if (_editor.trim().length() == 0)
-			throw new BookStringsException();
+			throw new BookEditorException();
 		else
 			this.editor = _editor;
 

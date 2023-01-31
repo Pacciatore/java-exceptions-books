@@ -68,7 +68,17 @@ public class Main {
 				try {
 					book = new Book(bookTitle, bookPages, bookAuthor, bookEditor);
 					done = true;
-				} catch (BookStringsException e) {
+				} catch (BookTitleException e) {
+					System.out.println("-------------------------------------------------");
+					System.out.println(e.getMessage() + " | Inserire nuovamente i dati.");
+					System.out.println();
+					done = false;
+				} catch (BookAuthorException e) {
+					System.out.println("-------------------------------------------------");
+					System.out.println(e.getMessage() + " | Inserire nuovamente i dati.");
+					System.out.println();
+					done = false;
+				} catch (BookEditorException e) {
 					System.out.println("-------------------------------------------------");
 					System.out.println(e.getMessage() + " | Inserire nuovamente i dati.");
 					System.out.println();
