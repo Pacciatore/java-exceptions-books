@@ -49,8 +49,15 @@ public class Main {
 				System.out.print("Inserire titolo libro: ");
 				String bookTitle = s.nextLine();
 
+				int bookPages = 0;
+
 				System.out.print("Inserire numero di pagine: ");
-				int bookPages = Integer.parseInt(s.nextLine());
+				try {
+					bookPages = Integer.parseInt(s.nextLine());
+					done = true;
+				} catch (NumberFormatException e) {
+					done = false;
+				}
 
 				System.out.print("Inserire autore: ");
 				String bookAuthor = s.nextLine();
@@ -62,12 +69,17 @@ public class Main {
 					book = new Book(bookTitle, bookPages, bookAuthor, bookEditor);
 					done = true;
 				} catch (BookStringsException e) {
+					System.out.println("-------------------------------------------------");
 					System.out.println(e.getMessage() + " | Inserire nuovamente i dati.");
+					System.out.println();
 					done = false;
-				} catch (NumberFormatException e) {
-					System.out.println("Inserire un numero!");
+				} catch (BookIntegerException e) {
+					System.out.println("-------------------------------------------------");
+					System.out.println(e.getMessage() + " | Inserire nuovamente i dati.");
+					System.out.println();
 					done = false;
 				}
+
 			} while (!done);
 			books[i] = book;
 
