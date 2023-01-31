@@ -1,13 +1,13 @@
 package org.lessons.java.books;
 
-public class Libro {
+public class Book {
 
 	private String title;
 	private int numPages;
 	private String author;
 	private String editor;
 
-	public Libro(String _title, int _numPages, String _author, String _editor) {
+	public Book(String _title, int _numPages, String _author, String _editor) {
 
 		this.title = _title;
 		this.numPages = _numPages;
