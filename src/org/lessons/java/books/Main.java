@@ -136,63 +136,66 @@ public class Main {
 			}
 		} while (!(booksToChange > 0 && booksToChange <= books.length));
 
-		// Cambio del titolo
-		do {
-			try {
-				System.out.println("Cambia titolo del primo libro: ");
-				books[0].setTitle(s.nextLine());
-				done = true;
-			} catch (BookTitleException e) {
-				System.out.println(e.getMessage());
-				done = false;
-			}
-		} while (!done);
+		// Inizio ciclo per inserimento dati
+		for (int i = 0; i < booksToChange; i++) {
 
-		done = false;
+			// Cambio del titolo
+			do {
+				try {
+					System.out.println("Cambia titolo del primo libro: ");
+					books[i].setTitle(s.nextLine());
+					done = true;
+				} catch (BookTitleException e) {
+					System.out.println(e.getMessage());
+					done = false;
+				}
+			} while (!done);
 
-		// Cambio del numero delle pagine
-		do {
-			try {
-				System.out.println("Cambia numero di pagine del primo libro: ");
-				books[0].setNumPages(Integer.parseInt(s.nextLine()));
-				done = true;
-			} catch (BookIntegerException e) {
-				System.out.println(e.getMessage());
-				done = false;
-			} catch (NumberFormatException e) {
-				System.out.println("Inserire un numero!");
-				done = false;
-			}
-		} while (!done);
+			done = false;
 
-		done = false;
+			// Cambio del numero delle pagine
+			do {
+				try {
+					System.out.println("Cambia numero di pagine del primo libro: ");
+					books[i].setNumPages(Integer.parseInt(s.nextLine()));
+					done = true;
+				} catch (BookIntegerException e) {
+					System.out.println(e.getMessage());
+					done = false;
+				} catch (NumberFormatException e) {
+					System.out.println("Inserire un numero!");
+					done = false;
+				}
+			} while (!done);
 
-		// Cambio dell'autore
-		do {
-			try {
-				System.out.println("Cambia autore del primo libro: ");
-				books[0].setAuthor(s.nextLine());
-				done = true;
-			} catch (BookAuthorException e) {
-				System.out.println(e.getMessage());
-				done = false;
-			}
-		} while (!done);
+			done = false;
 
-		done = false;
+			// Cambio dell'autore
+			do {
+				try {
+					System.out.println("Cambia autore del primo libro: ");
+					books[i].setAuthor(s.nextLine());
+					done = true;
+				} catch (BookAuthorException e) {
+					System.out.println(e.getMessage());
+					done = false;
+				}
+			} while (!done);
 
-		// Cambio dell'editore
-		do {
-			try {
-				System.out.println("Cambia editore del primo libro: ");
-				books[0].setEditor(s.nextLine());
-				done = true;
-			} catch (BookEditorException e) {
-				System.out.println(e.getMessage());
-				done = false;
-			}
-		} while (!done);
+			done = false;
 
+			// Cambio dell'editore
+			do {
+				try {
+					System.out.println("Cambia editore del primo libro: ");
+					books[i].setEditor(s.nextLine());
+					done = true;
+				} catch (BookEditorException e) {
+					System.out.println(e.getMessage());
+					done = false;
+				}
+			} while (!done);
+		}
 	}
 
 }
