@@ -20,7 +20,7 @@ public class Main {
 				if (numBooks == 0)
 					System.out.println("Inserire un numero maggiore di 0.");
 			} catch (NumberFormatException e) {
-				System.out.println("Errore nell'inserimento di un numero. " + e.getMessage());
+				System.out.println("Impossibile lasciare il campo vuoto!");
 			}
 		} while (numBooks <= 0);
 
@@ -52,6 +52,8 @@ public class Main {
 				int bookPages = 0;
 
 				System.out.print("Inserire numero di pagine: ");
+
+				// Try per evitare l'errore su inserimento vuoto
 				try {
 					bookPages = Integer.parseInt(s.nextLine());
 					done = true;
@@ -115,6 +117,22 @@ public class Main {
 	public static void changeBook(Scanner s, Book[] books) {
 
 		boolean done = false;
+
+		int booksToChange = -1;
+
+		do {
+			try {
+				System.out.println();
+				System.out.print("Inserire numero di libri da aggiornare: ");
+				booksToChange = Integer.parseInt(s.nextLine());
+				if (booksToChange <= 0)
+					System.out.println("Inserire un numero maggiore di 0.");
+				else if (booksToChange > books.length)
+					System.out.println("Non puoi cambiare più libri di quanti ce ne siano!");
+			} catch (NumberFormatException e) {
+				System.out.println("Impossibile lasciare il campo vuoto!");
+			}
+		} while (!(booksToChange > 0 && booksToChange <= books.length));
 
 		// Cambio del titolo
 		do {
