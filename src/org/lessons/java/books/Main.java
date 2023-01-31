@@ -41,23 +41,34 @@ public class Main {
 	public static void bookRegister(Scanner s, Book[] books) {
 
 		for (int i = 0; i < books.length; i++) {
-
+			Book book = null;
+			boolean done = false;
 			System.out.println();
 
-			System.out.print("Inserire titolo libro: ");
-			String bookTitle = s.nextLine();
+			do {
+				System.out.print("Inserire titolo libro: ");
+				String bookTitle = s.nextLine();
 
-			System.out.print("Inserire numero di pagine: ");
-			int bookPages = Integer.parseInt(s.nextLine());
+				System.out.print("Inserire numero di pagine: ");
+				int bookPages = Integer.parseInt(s.nextLine());
 
-			System.out.print("Inserire autore: ");
-			String bookAuthor = s.nextLine();
+				System.out.print("Inserire autore: ");
+				String bookAuthor = s.nextLine();
 
-			System.out.print("Inserire editore: ");
-			String bookEditor = s.nextLine();
+				System.out.print("Inserire editore: ");
+				String bookEditor = s.nextLine();
 
-			Book book = new Book(bookTitle, bookPages, bookAuthor, bookEditor);
-
+				try {
+					book = new Book(bookTitle, bookPages, bookAuthor, bookEditor);
+					done = true;
+				} catch (BookStringsException e) {
+					System.out.println(e.getMessage() + " | Inserire nuovamente i dati.");
+					done = false;
+				} catch (NumberFormatException e) {
+					System.out.println("Inserire un numero!");
+					done = false;
+				}
+			} while (!done);
 			books[i] = book;
 
 		}
