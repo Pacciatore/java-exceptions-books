@@ -16,4 +16,20 @@ public class Book {
 
 	}
 
+	public String getTitle() {
+		return this.title;
+	}
+
+	public int getNumPages() {
+		return this.numPages;
+	}
+
+	public String getAuthor() {
+		return this.author;
+	}
+
+	public String getEditor() {
+		return this.editor;
+	}
+
 }
