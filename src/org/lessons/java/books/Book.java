@@ -7,14 +7,19 @@ public class Book {
 	private String author;
 	private String editor;
 
-	public Book(String _title, int _numPages, String _author, String _editor) throws BookStringsException {
+	public Book(String _title, int _numPages, String _author, String _editor)
+			throws BookStringsException, BookIntegerException {
 
 		if (_title.trim().length() == 0)
 			throw new BookStringsException();
 		else
 			this.title = _title;
 
-		this.numPages = _numPages;
+		if (_numPages <= 0)
+			throw new BookIntegerException(_numPages);
+		else
+			this.numPages = _numPages;
+
 		this.author = _author;
 		this.editor = _editor;
 
