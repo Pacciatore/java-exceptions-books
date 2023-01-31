@@ -120,6 +120,8 @@ public class Main {
 
 		int booksToChange = -1;
 
+		// Controllo che il numero dei libri da aggiornare è compreso tra 0 e il numero
+		// di libri già presenti
 		do {
 			try {
 				System.out.println();
