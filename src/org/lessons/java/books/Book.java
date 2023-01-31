@@ -16,6 +16,7 @@ public class Book {
 
 	}
 
+	// Getters
 	public String getTitle() {
 		return this.title;
 	}
@@ -30,6 +31,35 @@ public class Book {
 
 	public String getEditor() {
 		return this.editor;
+	}
+
+	// Setters
+	public void setTitle(String _title) throws BookStringsException {
+		if (_title.trim().length() <= 0)
+			throw new BookStringsException(_title);
+		else
+			this.title = _title;
+	}
+
+	public void setNumPages(int _numPages) throws BookIntegerException {
+		if (_numPages <= 0)
+			throw new BookIntegerException(_numPages);
+		else
+			this.numPages = _numPages;
+	}
+
+	public void setAuthor(String _author) throws BookStringsException {
+		if (_author.trim().length() <= 0)
+			throw new BookStringsException(_author);
+		else
+			this.author = _author;
+	}
+
+	public void setEditor(String _editor) throws BookStringsException {
+		if (_editor.trim().length() <= 0)
+			throw new BookStringsException(_editor);
+		else
+			this.editor = _editor;
 	}
 
 }
