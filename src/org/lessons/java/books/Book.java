@@ -50,9 +50,9 @@ public class Book {
 	}
 
 	// Setters
-	public void setTitle(String _title) throws BookStringsException {
+	public void setTitle(String _title) throws BookTitleException {
 		if (_title.trim().length() <= 0)
-			throw new BookStringsException();
+			throw new BookTitleException();
 		else
 			this.title = _title;
 	}
@@ -64,16 +64,16 @@ public class Book {
 			this.numPages = _numPages;
 	}
 
-	public void setAuthor(String _author) throws BookStringsException {
+	public void setAuthor(String _author) throws BookAuthorException {
 		if (_author.trim().length() <= 0)
-			throw new BookStringsException();
+			throw new BookAuthorException();
 		else
 			this.author = _author;
 	}
 
-	public void setEditor(String _editor) throws BookStringsException {
+	public void setEditor(String _editor) throws BookEditorException {
 		if (_editor.trim().length() <= 0)
-			throw new BookStringsException();
+			throw new BookEditorException();
 		else
 			this.editor = _editor;
 	}

@@ -122,7 +122,7 @@ public class Main {
 				System.out.println("Cambia titolo del primo libro: ");
 				books[0].setTitle(s.nextLine());
 				done = true;
-			} catch (BookStringsException e) {
+			} catch (BookTitleException e) {
 				System.out.println(e.getMessage());
 				done = false;
 			}
@@ -153,7 +153,7 @@ public class Main {
 				System.out.println("Cambia autore del primo libro: ");
 				books[0].setAuthor(s.nextLine());
 				done = true;
-			} catch (BookStringsException e) {
+			} catch (BookAuthorException e) {
 				System.out.println(e.getMessage());
 				done = false;
 			}
@@ -167,7 +167,7 @@ public class Main {
 				System.out.println("Cambia editore del primo libro: ");
 				books[0].setEditor(s.nextLine());
 				done = true;
-			} catch (BookStringsException e) {
+			} catch (BookEditorException e) {
 				System.out.println(e.getMessage());
 				done = false;
 			}
